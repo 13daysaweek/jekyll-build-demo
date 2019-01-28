@@ -21,5 +21,14 @@ steps:
 
 - script: bundle exec jekyll build
   displayName: 'bundle exec jekyll build'
-#- script: bundle exec rake
-#  displayName: 'bundle exec rake'
+
+# Archive Files
+# Archive files using compression formats such as .7z, .rar, .tar.gz, and .zip.
+- task: ArchiveFiles@2
+  displayName: 'Create _site zip archive'
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)/_site/' 
+    archiveType: 'zip' # Options: zip, 7z, tar, wim
+    includeRootFolder: true
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' 
+    replaceExistingArchive: true 
