@@ -27,7 +27,7 @@ steps:
 - task: ArchiveFiles@2
   displayName: 'Create _site zip archive'
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)/_site/' 
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/_site/' 
     archiveType: 'zip' # Options: zip, 7z, tar, wim
     includeRootFolder: true
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' 
